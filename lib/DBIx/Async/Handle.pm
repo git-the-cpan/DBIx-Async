@@ -1,7 +1,5 @@
 package DBIx::Async::Handle;
-{
-  $DBIx::Async::Handle::VERSION = '0.002';
-}
+$DBIx::Async::Handle::VERSION = '0.003';
 use strict;
 use warnings;
 
@@ -11,7 +9,7 @@ DBIx::Async::Handle - statement handle for L<DBIx::Async>
 
 =head1 VERSION
 
-version 0.002
+version 0.003
 
 =head1 DESCRIPTION
 
@@ -20,6 +18,10 @@ return statement handles. Those statement handles are supposed to
 behave something like L<DBI>'s statement handles. Where they don't,
 this is either a limitation of the async interface or a bug. Please
 report if the latter.
+
+=cut
+
+use Variable::Disposition qw(retain_future);
 
 =head1 METHODS
 
@@ -69,8 +71,9 @@ Returns a L<Future> which will resolve when the statement is finished.
 sub finish {
 	my $self = shift;
 	my @param = @_;
-	die "execute has not yet completed?" unless $self->{execute}->is_ready;
-	$self->{execute}->then(sub {
+	die "execute has not yet completed?" unless $self->{execute} && $self->{execute}->is_ready;
+
+	retain_future $self->{execute}->then(sub {
 		my $id = shift->{id};
 		$self->dbh->queue({ op => 'finish', id => $id });
 	});
@@ -88,7 +91,7 @@ a L<Future> which will resolve with the requested hashref.
 sub fetchrow_hashref {
 	my $self = shift;
 	die "fetch on a handle which has not been executed" unless $self->{execute};
-	$self->{execute}->then(sub {
+	retain_future $self->{execute}->then(sub {
 		my $id = shift->{id};
 		$self->dbh->queue({
 			op => 'fetchrow_hashref',
@@ -133,7 +136,7 @@ sub iterate {
 		$code->(@_);
 	};
 	$self->$method->on_done($step);
-	$f;
+	retain_future $f;
 }
 
 1;
@@ -150,8 +153,8 @@ __END__
 
 =head1 AUTHOR
 
-Tom Molesworth <cpan@entitymodel.com>
+Tom Molesworth <cpan@perlsite.co.uk>
 
 =head1 LICENSE
 
-Copyright Tom Molesworth 2012-2014. Licensed under the same terms as Perl itself.
+Copyright Tom Molesworth 2012-2015. Licensed under the same terms as Perl itself.

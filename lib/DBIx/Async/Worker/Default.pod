@@ -6,6 +6,8 @@ at lib/DBIx/Async/Worker/Default.pm
 If you do edit this file, and don't want your changes to be removed, make
 sure you change the first line.
 
+=encoding utf8
+
 =cut
 
 =head1 INHERITED METHODS
@@ -20,9 +22,9 @@ L<begin_work|DBIx::Async::Worker/begin_work>, L<commit|DBIx::Async::Worker/commi
 
 =head1 AUTHOR
 
-Tom Molesworth <cpan@entitymodel.com>
+Tom Molesworth <cpan@perlsite.co.uk>
 
 =head1 LICENSE
 
-Copyright Tom Molesworth 2012-2013. Licensed under the same terms as Perl itself.
+Copyright Tom Molesworth 2012-2015. Licensed under the same terms as Perl itself.
 

@@ -1,8 +1,8 @@
 requires 'parent', 0;
 requires 'curry', 0;
 requires 'Future', '>= 0.21';
-requires 'Try::Tiny', 0;
 requires 'IO::Async', '>= 0.60';
+requires 'Variable::Disposition', '>= 0.002';
 requires 'DBI', 0;
 
 on 'test' => sub {

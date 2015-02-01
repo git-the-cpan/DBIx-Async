@@ -24,8 +24,14 @@ cmpthese -5, {
 			}
 		));
 
-		# Clean up if this isn't our first run
-		$dbh->do(q{drop table if exists tmp})
+		Future->needs_all(
+			$dbh->do(q{PRAGMA journal_mode=WAL}),
+			$dbh->do(q{PRAGMA wal_autocheckpoint=0}),
+			$dbh->do(q{PRAGMA synchronous=NORMAL}),
+
+			# Clean up if this isn't our first run
+			$dbh->do(q{drop table if exists tmp}),
+		)
 
 		# We start with a simple table definition
 		->then(sub { $dbh->do(q{create table tmp(id serial, content text)}) })
@@ -44,26 +50,25 @@ cmpthese -5, {
 		# ... and then read them back
 		->then(sub {
 			my $sth = $dbh->prepare(q{select * from tmp order by id});
-			$sth->execute;
-			my %seen;
-			$sth->iterate(
-				fetchrow_hashref => sub {
-					my $row = shift;
-					my ($id) = $row->{content} =~ /^value (\d+)$/ or die 'invalid entry found';
-					die "Too many values for $id" if $seen{$id}++;
-				}
-			)->on_done(sub {
-				my $id = 0;
-				for (sort { $a <=> $b } keys %seen) {
-					die "Wrong ID found: $_, expecting $id" unless $id++ eq $_;
-				}
-			});
-		})->on_done(sub {
-			$loop->stop;
+			$sth->execute
+			->then(sub {
+				my %seen;
+				$sth->iterate(
+					fetchrow_hashref => sub {
+						my $row = shift;
+						my ($id) = $row->{content} =~ /^value (\d+)$/ or die 'invalid entry found';
+						die "Too many values for $id" if $seen{$id}++;
+					}
+				)->on_done(sub {
+					my $id = 0;
+					for (sort { $a <=> $b } keys %seen) {
+						die "Wrong ID found: $_, expecting $id" unless $id++ eq $_;
+					}
+				});
+			})
 		})->on_fail(sub {
 			warn "Failure: @_\n"
-		});
-		$loop->run;
+		})->get;
 	},
 	'DBD::SQLite' => sub {
 		my $dbh = DBI->connect(

@@ -14,43 +14,44 @@ not run its Makefile.PL or Build.PL.
 -----BEGIN PGP SIGNED MESSAGE-----
 Hash: SHA1
 
-SHA1 111af2e667eecc1f138191ecc97f2acf6c01c577 Changes
-SHA1 2105071135fbd2f13cc828d1d99b9e4182763305 INSTALL
-SHA1 58403eb3f2c8983c79c530c44104344bd938d051 LICENSE
-SHA1 c802966c3ea07f30e843a4d0a733f5fc899f496d MANIFEST
-SHA1 0675d5745ce06cce541da7b1ab766838cdeb41e9 META.json
-SHA1 bb27766c79627c3064265a0f7c49f729e4c98566 META.yml
-SHA1 f886b4b53d68f64ede926787443fd99ebd2a20c5 Makefile.PL
-SHA1 77f116d50ce15818e3ce0488809fc8ecaf730c63 README
-SHA1 1ca7b1c714872beeab7dca7f6d891bace24f787b cpanfile
-SHA1 0caf57215d1a63ac5a10f8262a955fce7f6d25c6 dist.ini
-SHA1 fbd139c066309fec2e4a0626ba2cff7d1b34a311 examples/benchmark.pl
-SHA1 1aa83330980b1d78c3aeccbc5202cbd4f8854dae examples/simple.pl
-SHA1 3b375afb1dffa2453650b9aaf40861281d1483b5 examples/synopsis.pl
-SHA1 241e411e34811396822a03354d840a7b8ac67e2e lib/DBIx/Async.pm
-SHA1 6ea67cf277a3b50b059ba82b090e4d0fd951cd1c lib/DBIx/Async.pod
-SHA1 da1b317c54cbb79e7e1ef4a701d1efce37825863 lib/DBIx/Async/Handle.pm
-SHA1 966162b3b9b5063fc77396719d7d1c6614277925 lib/DBIx/Async/Worker.pm
-SHA1 988bfcc6d22da4c7d1902b55f572d40ae01cd783 lib/DBIx/Async/Worker/Default.pm
-SHA1 09d4ba9c9dd535141c5d521fb25de3f6a4543fbc lib/DBIx/Async/Worker/Default.pod
-SHA1 724c8ab330d2f02e971face2a51f735c0c08af38 lib/DBIx/Async/Worker/SQLite.pm
-SHA1 e23dbd70d73a2aba1399b2dadc127cc7263553a7 lib/DBIx/Async/Worker/SQLite.pod
+SHA1 583828b141f77e3f6ae2c6116199bc6f9640447b Changes
+SHA1 831665ab9d7d5090fd75fc6e4c22e262e062db23 INSTALL
+SHA1 b94f06af32c2cebe5696645fe2a782b88b5b6f40 LICENSE
+SHA1 ead84304b5c2132a5e37192534f53768f08ad805 MANIFEST
+SHA1 92389841e0c407cbd9e35eba90bc5da2c10a6464 META.json
+SHA1 bd54cdda234cb21fcca4bf769c74215a8191a682 META.yml
+SHA1 99a1afff9b4ae804cb802f1a571baa0a70e86851 Makefile.PL
+SHA1 599664e1e0dfb4b900d972c6642b1b4cbc8657bc README
+SHA1 4dcbe3b8b8ca9b35418b7b3159b03fabe05c71f7 cpanfile
+SHA1 ca0e2fdb56bd3f98a9b89b0a1b3a162bd7d56474 dist.ini
+SHA1 9db0f04b9d01ee2fc50af4393540123858cb6a77 examples/benchmark.pl
+SHA1 bf2d4b1e6cc6d1978b170c028ba1cdbff104c420 examples/simple.pl
+SHA1 d4c18aee53da0b3b33f81b20878b3cee6b17b336 examples/synopsis.pl
+SHA1 a8b0640f2a9db5861df6eaf4cfaf91118e2baf76 lib/DBIx/Async.pm
+SHA1 85fb2ccb9f32db7b434da683897173cef91825de lib/DBIx/Async.pod
+SHA1 88e7836c282e13def846b555b19f19df6971b71f lib/DBIx/Async/Handle.pm
+SHA1 e1698a237f97cced2ef2825a3adf0f70e186bf28 lib/DBIx/Async/Worker.pm
+SHA1 7f46b99f6c672fe6a787bb7c60dd9436485be147 lib/DBIx/Async/Worker/Default.pm
+SHA1 91b549f29ddf01b4e02ee55da018eeded198e484 lib/DBIx/Async/Worker/Default.pod
+SHA1 15d7def83059f4253027e9b41e6443813571afc4 lib/DBIx/Async/Worker/SQLite.pm
+SHA1 b7b09d2c30fcf0f96ae0ae7636ba4055a3e9460a lib/DBIx/Async/Worker/SQLite.pod
 SHA1 985d9ded8d8ed7e344a09e52b1402e878e91da28 t/00-check-deps.t
-SHA1 6dd478d8e2453cc0288890d0847571158b8f4d7b t/00-compile.t
+SHA1 07db157f4f88968d564a3d99d91db3da568e378d t/00-compile.t
+SHA1 990d484fcae88e3181b47425d7ea36ae86d90407 t/000-report-versions-tiny.t
 SHA1 cd39aeeb3328b29818e3183e6d3fdfcd5953e56d t/sqlite3.t
 SHA1 198d1665317c3d91e3bb81f0a3b8dad8d4d66f20 xt/release/common_spelling.t
 SHA1 c6c3c9f7fe12058b4771449dff874b1c450c982c xt/release/mojibake.t
-SHA1 0f2af233072d355a3999384983e05d60c951a601 xt/release/pod-syntax.t
-SHA1 fd1fa776fca35fc8f1bdd24ee3fbaa1eca755a44 xt/release/synopsis.t
-SHA1 bbcd59d081d9940af5d43337ae85458075933829 xt/release/test-version.t
+SHA1 296928dbbcaffd1514ccc9b77a1e6e03cfe9b068 xt/release/pod-syntax.t
+SHA1 34513f89a70b96f6412fe2ef0ad4d475e8cac66c xt/release/synopsis.t
+SHA1 1294a6710ea8e2626e43722e50111bf872668316 xt/release/test-version.t
 -----BEGIN PGP SIGNATURE-----
-Version: GnuPG v1.4.12 (GNU/Linux)
+Version: GnuPG v1
 
-iQEcBAEBAgAGBQJS07MwAAoJEFKElMNpjtyDNqkH/jF1iEpik1vOc1kd/y6r43nU
-X+Bg289tzR2I4lSXRGBylKAUt77qdji54EkR5Q7S7F89x1TIuaM3qhwhrnkxZyWN
-Hyl/ESI6zlTEUUgVPKqeawHuasTbRzzOlMd9Jx3gd/YBURzgO/cN5pegw725t15G
-Uimf189/vNvyZUHU2hlIgs/ODYLN4+ZvuELra10+onwQ/vaeVoKGw4EnatcxomlB
-GdCG9pokrNh3n0oGvpXbj5cfB0Bs3K0wPDBfmm0u92g6lEDonAM//fAEsnJIjtgm
-rL/ybGvJNfbf6AzhbiVdKEJjh0P3HipLqxSQ2+j4xByctr57RiEHADdUsAmNa3E=
-=JtlT
+iQEcBAEBAgAGBQJUzkYLAAoJEFKElMNpjtyDHeQH/R2eB6EdjwbRbpk3Hnt2XqgQ
+6dPVB0rmJRG76wLei4wCYYcEREWRD/pzDQW7IyQTYL7YIezhm5Gz5TRvMWVLapAg
+Eo201FPdJZi6v6OdwNXl7P+FbZIi/zoAFeytPGPv7v9x8yFaqVOYq5cY5sVD+qc0
+hnJU3nqx1zn7h/qZpCjS13WCGb8dCCZzRgTromFzuCaje2x8yV8hr+z8JC+MnlaR
+vz4z8vaPddA4TYTg6nGvAMWhtb2OgEdZK7FXA47B+2Ysr8wVnX1UALhU1n/zOGhY
+ZnQBcPruZS2IVPwvzWRx69PJkXoDpcn+RgmYqo2iTcvSDt64xPdg0/oOhrxo7+0=
+=JEhE
 -----END PGP SIGNATURE-----
